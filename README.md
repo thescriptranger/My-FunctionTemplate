@@ -27,24 +27,27 @@ Get-Something -SomethingToGet "TextValue1"
 
 # Using pipeline input
 "TextValue1", "TextValue2" | Get-Something
+```
 
-Script Blocks
-BEGIN: Initializes variables, starts logging, and loads configuration settings.
-PROCESS: Contains the main processing logic (currently a placeholder for future enhancements).
-END: Finalizes the script execution, stops logging, and outputs execution time.
+### Script Blocks
 
-Detailed Script Breakdown
-Synopsis
+- **BEGIN**: Initializes variables, starts logging, and loads configuration settings.
+- **PROCESS**: Contains the main processing logic (currently a placeholder for future enhancements).
+- **END**: Finalizes the script execution, stops logging, and outputs execution time.
 
+### Detailed Script Breakdown
+#### Synopsis
+
+```powershell
 <#
 .SYNOPSIS
     Retrieves information based on UserPrincipalName.
 #>
-
+```
 Provides a brief overview of what the function does.
 
-Notes
-
+#### Notes
+```powershell
 <#
 .NOTES
     Name: Get-Something
@@ -52,29 +55,29 @@ Notes
     Version: 1.0
     DateCreated: 2021.01.01
 #>
-
+```
 Contains metadata about the script, including author, version, and creation date.
 
-Examples
-
+#### Examples
+```powershell
 <#
 .EXAMPLE
     Get-Something -UserPrincipalName "username@somedomain.com"
 #>
-
+```
 Shows how to use the function with sample input.
 
-Link
-
+#### Link
+```powershell
 <#
 .LINK
     https://github.com/YourRepositoryLinkHere
 #>
-
+```
 Provides a link to the repository or relevant documentation.
 
-Parameters
-
+#### Parameters
+```powershell
 param(
     [Parameter(
         Mandatory = $false,
@@ -84,11 +87,11 @@ param(
     )]
     [string[]] $UserPrincipalName
 )
-
+```
 Defines the parameters for the function. In this case, UserPrincipalName is optional and supports pipeline input.
 
-BEGIN Block
-
+#### BEGIN Block
+```powershell
 BEGIN {
     $stopWatch = [System.Diagnostics.Stopwatch]::StartNew()
     $myRootPath = $PSScriptRoot
@@ -107,22 +110,22 @@ BEGIN {
     # Load function scripts
     Get-ChildItem -Path "$myRootPath\_function" -Filter "*.ps1" -Recurse -Verbose | ForEach-Object { . $_ }
 }
+```
+- **Initialization**: Starts a stopwatch to measure execution time and sets up root paths.
+- **Logging**: Initializes a log file and starts a transcript for logging.
+- **Configuration**: Loads settings from an XML configuration file if it exists.
+- **Script Loading**: Loads additional scripts from the _function directory.
 
-- Initialization: Starts a stopwatch to measure execution time and sets up root paths.
-- Logging: Initializes a log file and starts a transcript for logging.
-- Configuration: Loads settings from an XML configuration file if it exists.
-- Script Loading: Loads additional scripts from the _function directory.
-
-PROCESS Block
-
+#### PROCESS Block
+```powershell
 PROCESS {
     # Implement processing logic here if needed
 }
-
+```
 Placeholder for the main processing logic.
 
-END Block
-
+#### END Block
+```powershell
 END {
     $stopWatch.Stop()
     Write-Output "$myFunctionName Completed"
@@ -130,17 +133,17 @@ END {
     Stop-Transcript
     Pop-Location
 }
+```
+- **Finalization**: Stops the stopwatch and logs the completion message and elapsed time.
+- **Logging**: Stops the transcript and reverts to the original location.
 
-- Finalization: Stops the stopwatch and logs the completion message and elapsed time.
-- Logging: Stops the transcript and reverts to the original location.
-
-Contribution
+### Contribution
 Contributions are welcome! Please fork the repository and submit pull requests.
 
-License
+### License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-Contact
+### Contact
 For any questions or suggestions, please open an issue or contact Script Ranger.
 
 
